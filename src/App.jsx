@@ -61,8 +61,7 @@ function App() {
           />
           <Route
             path="/profile"
-            element={currentUser ? <Profile /> : <Navigate to="/" />}
-          />
+            element={currentUser ? <Profile /> : <Navigate to="/" />}/>
         </Routes>
       </Router>)}
     </div>

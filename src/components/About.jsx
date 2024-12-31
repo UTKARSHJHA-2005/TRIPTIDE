@@ -8,7 +8,7 @@ const About = () => {
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="mt-6 text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
-            ✈︎"Collect Memories Not Things"✈︎
+            ✈︎"Traveling—it leaves you speechless, then turns you into a storyteller"✈︎
           </h2>
         </div>
         <div className="grid items-center grid-cols-1 mt-12 gap-y-10 lg:grid-cols-5 sm:mt-20 gap-x-4">

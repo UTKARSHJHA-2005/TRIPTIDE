@@ -3,6 +3,7 @@ import Contact from '../components/Contact'
 import Navbar from '../components/Navbar'
 import About from '../components/About'
 import FAQ from '../components/FAQ'
+import News from '../components/News'
 import Landing from '../components/Landing'
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       <About/>
       <br />
       <FAQ/>
+      <News/>
       <Contact/>
     </>
   )
