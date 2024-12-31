@@ -15,4 +15,5 @@ AI-driven smart scheduling to help you make the most of your time at each destin
 Easy-to-use design that lets you plan, save, and track your trips effortlessly.<br/>
 🌍 Budget-Friendly Options<br/>
 Whether it’s a short getaway or a long vacation, TRIPTIDE optimizes your budget and experience.<br/>
-With TRIPTIDE, we take care of the details, so you can focus on creating unforgettable travel memories. Let AI help to plan your next adventure!
+With TRIPTIDE, we take care of the details, so you can focus on creating unforgettable travel memories.<br/>
+Let AI help to plan your next adventure!
