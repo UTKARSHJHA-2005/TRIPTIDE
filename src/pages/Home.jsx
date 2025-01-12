@@ -6,9 +6,8 @@ import FAQ from '../components/FAQ'
 import News from '../components/News'
 import Landing from '../components/Landing'
 
-export default function Home() {
+export default function Home(){
   const user=localStorage.getItem("users")
-  console.log(user?.name);
   return (
     <><Navbar />
     <br /><br /><br />

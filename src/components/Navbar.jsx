@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Userstore } from "../Userstore";
+import logo from '../assets/logo.jpg';
 import avatar from "../assets/avatar.jpg";
 import { useNavigate } from "react-router-dom";
 
@@ -30,10 +31,11 @@ const Navbar = () => {
       <div className="max-w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
+            <img src={logo} alt="logo" className="h-[60px]"/>
             <h1 className="text-2xl font-bold uppercase">TRIPTIDE</h1>
           </div>
           <div className="hidden md:flex items-center space-x-8">
-            <a href="/" className="hover:text-gray-400">Home</a>
+            <a href="/home" className="hover:text-gray-400">Home</a>
             {currentUser ? (
               <div className="flex items-center space-x-4">
                 <div className="relative flex items-center space-x-2 group">

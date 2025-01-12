@@ -40,16 +40,16 @@ function App() {
       ) : (<Router>
         <Routes>
           <Route
-            path="/login"
-            element={currentUser ? <Navigate to="/" /> : <Login />}
+            path="/"
+            element={<Login />}
           />
           <Route
             path="/signup"
             element={currentUser ? <Navigate to="/" /> : <Signup />}
           />
           <Route
-            path="/"
-            element={currentUser ? <Home /> : <Navigate to="/login" />}
+            path="/home"
+            element={currentUser ? <Home /> : <Navigate to="/" />}
           />
           <Route
             path="/create"

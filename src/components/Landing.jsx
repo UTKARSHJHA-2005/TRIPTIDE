@@ -14,7 +14,6 @@ const Landing = () => {
 
   return (
     <div className="font-semibold text-[30px] text-center">
-      {/* Header Section */}
       <div>Discover your Adventure with AI: Personal Itineraries in Your Hand</div>
       <p className="text-gray-400 font-light text-[20px]">
         Build, personalize, and optimize your itineraries with our free AI trip planner.<br />
