@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Userstore } from "../Userstore";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../db";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { AiFillCamera } from "react-icons/ai";
 import { collection, query, where, getDocs } from "firebase/firestore";
 
