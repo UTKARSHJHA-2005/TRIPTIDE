@@ -88,12 +88,6 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="absolute top-16 left-0 w-full bg-green-700 text-white md:hidden">
           <div className="flex flex-col space-y-4 p-4">
-            <a
-              href="#home"
-              className="block text-lg hover:bg-green-500 p-2 rounded"
-              onClick={() => setIsMenuOpen(false)}>
-              Home
-            </a>
             {currentUser ? (
               <div>
                 <button
