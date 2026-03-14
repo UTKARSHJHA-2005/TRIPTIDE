@@ -16,18 +16,33 @@ export default function Createtrip() {
 
   const savetrip = async (tripdata) => {
     const docId = Date.now().toString();
-    const cleanedTripData = tripdata
-      .replace(/```json/g, "")
-      .replace(/```/g, "")
-      .trim();
-    await setDoc(doc(db, "AITrips", docId), {
-      userSelection: { place, days, budget, travelGroup },
-      email: currentUser?.email,
-      trip: JSON.parse(cleanedTripData),
-      id: docId,
-    });
-    navigate("/view/" + docId);
-    console.log("Trip Saved");
+
+    try {
+      // Extract JSON block from AI response
+      const jsonMatch = tripdata.match(/\{[\s\S]*\}/);
+
+      if (!jsonMatch) {
+        throw new Error("No JSON found in AI response");
+      }
+
+      const parsedData = JSON.parse(jsonMatch[0]);
+
+      await setDoc(doc(db, "AITrips", docId), {
+        userSelection: { place, days, budget, travelGroup },
+        email: currentUser?.email,
+        trip: parsedData,
+        id: docId,
+      });
+
+      navigate("/view/" + docId);
+
+      console.log("Trip Saved");
+    } catch (error) {
+      console.error("AI JSON error:", error);
+      console.log("Raw AI Response:", tripdata);
+
+      alert("Trip generation failed. Please try again.");
+    }
   };
 
   const handleGenerateTrip = async () => {

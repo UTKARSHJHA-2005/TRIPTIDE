@@ -3,6 +3,15 @@ const OPENROUTER_API_KEY = "";
 export const AI_Prompt = `
 Generate Travel Plan for Location:{place} for {days} days for {travelGroup} in a {budget} budget.
 
+Return ONLY VALID JSON.
+
+Rules:
+1. Do not include explanations
+2. Do not include markdown
+3. Do not include text before or after JSON
+4. Return valid JSON only
+
+
 Give:
 - Hotels list with
 hotel_name
@@ -39,7 +48,7 @@ export const generateTripPlan = async (prompt) => {
           "X-Title": "AI Travel Planner",
         },
         body: JSON.stringify({
-          model: "mistralai/mistral-7b-instruct:free",
+          model: "openrouter/free",
           messages: [{ role: "user", content: prompt }],
           temperature: 1,
           max_tokens: 4096,
