@@ -89,8 +89,6 @@ export default function Createtrip() {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-transparent to-slate-950 z-0" />
 
-      <Navbar />
-
       <div className="relative z-10 max-w-5xl mx-auto px-6 pt-32">
         {/* Header Section */}
         <div className="text-center mb-16">
