@@ -1,4 +1,5 @@
 const OPENROUTER_API_KEY = import.meta.env.VITE_OPENROUTER_API;
+console.log(OPENROUTER_API_KEY);
 
 export const AI_Prompt = `
 Generate a travel plan.
