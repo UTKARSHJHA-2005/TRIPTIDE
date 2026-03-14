@@ -3,62 +3,6 @@ import { Link } from "react-router-dom";
 import planeimg from "./planetrip.jpg";
 
 export default function Info({ trip }) {
-  const [placeImage, setPlaceImage] = useState(null);
-  const [hotelImages, setHotelImages] = useState({});
-  const [itineraryImages, setItineraryImages] = useState({});
-  useEffect(() => {
-    const fetchPlaceDetails = async (placeName) => {
-      try {
-        const imageUrl = await GetPlace(placeName);
-        setPlaceImage(imageUrl);
-        console.log("Fetched Place Image:", imageUrl);
-      } catch (error) {
-        console.error("Error fetching place details:", error);
-      }
-    };
-
-    const userSelectedPlace = trip?.userSelection?.place;
-    if (userSelectedPlace) {
-      fetchPlaceDetails(userSelectedPlace);
-    }
-  }, [trip]);
-  useEffect(() => {
-    const fetchHotelImages = async () => {
-      if (trip?.trip?.hotels?.length > 0) {
-        const images = {};
-        for (const hotel of trip.trip.hotels) {
-          const imageUrl = await GetPlace(hotel.hotel_name);
-          images[hotel.hotel_name] = imageUrl;
-        }
-        setHotelImages(images);
-      }
-    };
-
-    fetchHotelImages();
-  }, [trip]);
-  // Fetch images for itinerary places
-  useEffect(() => {
-    const fetchItineraryImages = async () => {
-      if (trip?.trip?.itinerary) {
-        const images = {};
-
-        for (const key of Object.keys(trip.trip.itinerary)) {
-          const day = trip.trip.itinerary[key];
-
-          if (day?.places?.length > 0) {
-            for (const place of day.places) {
-              const imageUrl = await GetPlace(place.place_name);
-              images[place.place_name] = imageUrl;
-            }
-          }
-        }
-
-        setItineraryImages(images);
-      }
-    };
-
-    fetchItineraryImages();
-  }, [trip]);
   return (
     <div>
       <img
