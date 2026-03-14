@@ -54,99 +54,110 @@ export default function Login() {
 
   return (
     <div className="relative flex items-center justify-center min-h-screen overflow-hidden font-sans">
-      {/* Background Image with Overlay */}
+      {/* Background Image - Midnight Aviation/City Theme */}
       <div
-        className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-1000 hover:scale-105"
+        className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-[10000ms] scale-110 animate-slow-zoom"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?auto=format&fit=crop&q=80&w=2070')",
+            "url('https://images.unsplash.com/photo-1464012391851-f7114339941c?auto=format&fit=crop&q=80&w=2070')",
         }}
       >
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/70 via-black/50 to-indigo-900/70 backdrop-blur-[2px]"></div>
       </div>
 
-      {/* Main Card */}
-      <div className="relative z-10 w-[90%] max-w-[450px] bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 shadow-2xl text-white">
+      {/* Main Card - Glassmorphism */}
+      <div className="relative z-10 w-[95%] max-w-[480px] bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[2.5rem] p-10 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] text-white">
         {/* Header Section */}
-        <div className="flex flex-col items-center mb-8">
-          <div className="bg-blue-500 p-3 rounded-full mb-4 shadow-lg animate-bounce-slow">
-            <Plane size={32} className="text-white" />
+        <div className="flex flex-col items-center mb-10">
+          <div className="relative">
+            <div className="bg-blue-600 p-4 rounded-2xl shadow-xl shadow-blue-500/20 rotate-12 hover:rotate-0 transition-transform duration-500">
+              <Ticket size={32} className="text-white" />
+            </div>
+            <div className="absolute -top-2 -right-2 bg-emerald-500 h-4 w-4 rounded-full border-2 border-white animate-pulse"></div>
           </div>
-          <h1 className="text-3xl font-bold tracking-tight">
-            Ready to Explore?
+          <h1 className="text-4xl font-extrabold tracking-tight mt-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
+            Welcome Back
           </h1>
-          <p className="text-blue-100/70 text-sm">
-            Sign in to start your next adventure
+          <p className="text-blue-100/60 text-sm mt-2 tracking-wide uppercase">
+            Terminal Access / Check-In
           </p>
         </div>
 
         {/* Input Fields */}
-        <div className="space-y-4">
-          <div className="relative">
+        <div className="space-y-5">
+          <div className="group relative">
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email Address"
-              className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-400 transition-all placeholder:text-gray-300"
+              placeholder="Registered Email"
+              className="w-full bg-black/20 border border-white/10 rounded-2xl px-5 py-4 outline-none focus:ring-2 focus:ring-blue-500 transition-all placeholder:text-gray-400 text-lg shadow-inner"
               required
             />
           </div>
-          <div className="relative">
+          <div className="group relative">
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
-              className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-400 transition-all placeholder:text-gray-300"
+              placeholder="Security Key"
+              className="w-full bg-black/20 border border-white/10 rounded-2xl px-5 py-4 outline-none focus:ring-2 focus:ring-blue-500 transition-all placeholder:text-gray-400 text-lg shadow-inner"
               required
             />
           </div>
         </div>
 
-        {/* Login Button */}
+        {/* Login Action */}
         <button
           onClick={login}
-          className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl mt-8 transition-all transform active:scale-95 shadow-lg flex items-center justify-center space-x-2"
+          className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-2xl mt-10 transition-all transform active:scale-95 shadow-lg shadow-blue-600/30 flex items-center justify-center space-x-3 text-lg"
         >
-          <span>Begin Journey</span>
-          <Globe size={18} />
+          <span>Validate & Board</span>
+          <Plane size={20} className="rotate-45" />
         </button>
 
         {/* Divider */}
-        <div className="flex items-center my-6">
-          <div className="flex-grow border-t border-white/20"></div>
-          <span className="px-3 text-xs uppercase tracking-widest text-white/50">
-            Passport Control
+        <div className="flex items-center my-8">
+          <div className="flex-grow border-t border-white/10"></div>
+          <span className="px-4 text-[10px] font-black uppercase tracking-[0.3em] text-white/30">
+            Biometric Bypass
           </span>
-          <div className="flex-grow border-t border-white/20"></div>
+          <div className="flex-grow border-t border-white/10"></div>
         </div>
 
         {/* Social Login */}
         <button
           onClick={googlesignin}
-          className="w-full bg-white text-gray-900 font-semibold py-3 rounded-xl transition-all flex items-center justify-center space-x-3 hover:bg-gray-100"
+          className="w-full bg-white/95 hover:bg-white text-gray-900 font-bold py-4 rounded-2xl transition-all flex items-center justify-center space-x-3 shadow-xl active:scale-95"
         >
           <img
             src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
             alt="google"
-            className="w-5 h-5"
+            className="w-6 h-6"
           />
-          <span>Quick Board with Google</span>
+          <span>Google Fast-Pass</span>
         </button>
 
         {/* Footer Link */}
-        <div className="mt-8 text-center text-sm">
-          <p className="text-white/60">
-            Don't have a ticket yet?{" "}
+        <div className="mt-10 text-center">
+          <p className="text-white/50 text-sm">
+            No reservation yet?{" "}
             <button
-              className="text-blue-300 hover:text-blue-100 font-bold underline underline-offset-4"
+              className="text-white font-bold hover:text-blue-300 transition-colors underline underline-offset-4 decoration-blue-500/50"
               onClick={() => navigate("/signup")}
             >
-              Sign up here
+              Get your Ticket
             </button>
           </p>
         </div>
+      </div>
+
+      {/* Subtle Bottom Decoration */}
+      <div className="absolute bottom-10 left-10 flex items-center space-x-2 text-white/20">
+        <Globe size={16} />
+        <span className="text-[10px] uppercase tracking-widest">
+          Global Access Enabled
+        </span>
       </div>
     </div>
   );
