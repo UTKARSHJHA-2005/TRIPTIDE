@@ -65,8 +65,8 @@ export default function Info({ trip }) {
         for (const key of Object.keys(trip.trip.itinerary)) {
           const day = trip.trip.itinerary[key];
 
-          if (day?.plan?.length > 0) {
-            for (const place of day.plan) {
+          if (day?.places?.length > 0) {
+            for (const place of day.places) {
               const imageUrl = await GetPlace(place.place_name);
               images[place.place_name] = imageUrl;
             }
@@ -193,8 +193,8 @@ export default function Info({ trip }) {
                                                      
                   <div className="flex flex-row gap-4 p-2">
                                                            
-                    {day?.plan?.length > 0 ? (
-                      day.plan.map((place, idx) => (
+                    {day?.places?.length > 0 ? (
+                      day.places.map((place, idx) => (
                         <Link
                           key={idx}
                           to={
