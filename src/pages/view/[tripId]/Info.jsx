@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import planeimg from './planetrip.jpg';
 
 const GetPlace = async (placeName) => {
-    const response = await fetch(`https://api.unsplash.com/search/photos?query=${placeName}&client_id=dd9bmKMx4wHj8RCZUj2dnhTlzq3ZMy1Pmpg85eFyvKg`);
+    const response = await fetch(`https://api.unsplash.com/search/photos?query=${placeName}&client_id=rg87Q54fBguIsWJEHnwQ46XXhpyKw7YYiKKbPbtUi2M`);
     const data = await response.json();
     return data.results[0]?.urls?.regular; // Get the first image URL
 };
