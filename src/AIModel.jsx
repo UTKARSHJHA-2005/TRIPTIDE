@@ -1,9 +1,8 @@
 const OPENROUTER_API_KEY = "YOUR_OPENROUTER_KEY";
 
+export const AI_PROMPT = `Generate Travel Plan for Location:${place} for ${days} days for ${travelGroup} in a ${budget} budget, give me hotels options list with hotel name,hotel address, price, hotle image url,geo coordinates, rating,descriptions and suggest itenary with placename,place details, place image url,geo coordinates,ticket pricing,rating,time traveleach of the location for ${days} days with each day plan with best time to visit in JSON format`;
+
 export const generateTripPlan = async (place, days, travelGroup, budget) => {
-
-const AI_PROMPT = `Generate Travel Plan for Location:${place} for ${days} days for ${travelGroup} in a ${budget} budget, give me hotels options list with hotel name,hotel address, price, hotle image url,geo coordinates, rating,descriptions and suggest itenary with placename,place details, place image url,geo coordinates,ticket pricing,rating,time traveleach of the location for ${days} days with each day plan with best time to visit in JSON format`;
-
   try {
 
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions",{
