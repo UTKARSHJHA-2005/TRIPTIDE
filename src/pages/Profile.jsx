@@ -35,7 +35,7 @@ const ProfilePage = () => {
       console.error("Error updating profile:", error);
       alert("Failed to update profile. Try again later.");
     }
-    navigate("/");
+    navigate("/home");
   };
 
   return (
