@@ -9,8 +9,7 @@ import { app } from "../db";
 import google from "../assets/google.jpg";
 import { useNavigate } from "react-router-dom";
 import { Userstore } from "../Userstore";
-import { Plane, MapPin, Globe } from "lucide-react";
-
+import { Plane, Globe, Ticket, Fingerprint } from "lucide-react";
 const auth = getAuth(app);
 const Google = new GoogleAuthProvider();
 
