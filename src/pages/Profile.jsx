@@ -127,6 +127,25 @@ const ProfilePage = () => {
           className="w-full border px-3 py-2 rounded"
         />
       </div>
+      <div className="mt-10 w-full max-w-md">
+        <h2 className="text-xl font-bold mb-4">Your Trips</h2>
+
+        {trips.length === 0 ? (
+          <p className="text-gray-500">No trips generated yet.</p>
+        ) : (
+          <div className="flex flex-col gap-3">
+            {trips.map((trip) => (
+              <Link
+                key={trip.id}
+                to={`/view/${trip.id}`}
+                className="p-3 border rounded-lg hover:bg-gray-100 transition"
+              >
+                🌍 {trip.userSelection.place}
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
       <button
         onClick={handleSaveChanges}
         className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500"
