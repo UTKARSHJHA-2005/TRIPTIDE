@@ -16,7 +16,10 @@ export default function Createtrip() {
 
   const savetrip = async (tripdata) => {
     const docId = Date.now().toString();
-    const cleanedTripData = tripdata.replace(/```json|```/g, "").trim();
+    const cleanedTripData = tripdata
+      .replace(/```json/g, "")
+      .replace(/```/g, "")
+      .trim();
     await setDoc(doc(db, "AITrips", docId), {
       userSelection: { place, days, budget, travelGroup },
       email: currentUser?.email,
