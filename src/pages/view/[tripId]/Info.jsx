@@ -8,7 +8,7 @@ const GetPlace = async (placeName) => {
             `https://api.pexels.com/v1/search?query=${placeName}&per_page=1`,
             {
                 headers: {
-                    Authorization: "YOUR_PEXELS_API_KEY"
+                    Authorization: "oi21LBfpKP9hv4L6Fd3vynDVd8Fdro8QDelijZwABb8qRGAbd4EY3MMu"
                 }
             }
         );
@@ -58,23 +58,27 @@ export default function Info({ trip }) {
     }, [trip]);
     // Fetch images for itinerary places
     useEffect(() => {
-        const fetchItineraryImages = async () => {
-            if (trip?.trip?.itinerary) {
-                const images = {};
-                Object.keys(trip.trip.itinerary).forEach(async (key) => {
-                    const day = trip.trip.itinerary[key];
-                    if (day?.places?.length > 0) {
-                        for (const place of day.places) {
-                            const imageUrl = await GetPlace(place.place_name);
-                            images[place.place_name] = imageUrl;
-                        }
+    const fetchItineraryImages = async () => {
+        if (trip?.trip?.itinerary) {
+            const images = {};
+
+            for (const key of Object.keys(trip.trip.itinerary)) {
+                const day = trip.trip.itinerary[key];
+
+                if (day?.places?.length > 0) {
+                    for (const place of day.places) {
+                        const imageUrl = await GetPlace(place.place_name);
+                        images[place.place_name] = imageUrl;
                     }
-                });
-                setItineraryImages(images);
+                }
             }
-        };
-        fetchItineraryImages();
-    }, [trip]);
+
+            setItineraryImages(images);
+        }
+    };
+
+    fetchItineraryImages();
+}, [trip]);
     return (
         <div>
             <img 
