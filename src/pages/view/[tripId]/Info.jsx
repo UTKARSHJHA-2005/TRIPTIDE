@@ -141,7 +141,6 @@ export default function Info({ trip }) {
                                                         <p className="w-full">{place.place_details}</p>
                                                         <p>🌟{place.rating}/5</p>
                                                         <p>💸{place.ticket_pricing}</p>
-                                                        <p>⏱{place.travel_time}</p>
                                                     </div>
                                                 </Link>
                                             ))
