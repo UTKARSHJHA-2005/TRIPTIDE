@@ -2,27 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import planeimg from "./planetrip.jpg";
 
-const GetPlace = async (placeName) => {
-  try {
-    const response = await fetch(
-      `https://api.pexels.com/v1/search?query=${placeName}&per_page=1`,
-      {
-        headers: {
-          Authorization:
-            "oi21LBfpKP9hv4L6Fd3vynDVd8Fdro8QDelijZwABb8qRGAbd4EY3MMu",
-        },
-      },
-    );
-
-    const data = await response.json();
-
-    return data.photos[0]?.src?.large; // return first image
-  } catch (error) {
-    console.error("Error fetching image from Pexels:", error);
-    return null;
-  }
-};
-
 export default function Info({ trip }) {
   const [placeImage, setPlaceImage] = useState(null);
   const [hotelImages, setHotelImages] = useState({});
