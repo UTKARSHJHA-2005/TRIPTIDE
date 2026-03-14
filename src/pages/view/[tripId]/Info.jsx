@@ -3,9 +3,23 @@ import { Link } from 'react-router-dom';
 import planeimg from './planetrip.jpg';
 
 const GetPlace = async (placeName) => {
-    const response = await fetch(`https://api.unsplash.com/search/photos?query=${placeName}&client_id=rg87Q54fBguIsWJEHnwQ46XXhpyKw7YYiKKbPbtUi2M`);
-    const data = await response.json();
-    return data.results[0]?.urls?.regular; // Get the first image URL
+    try {
+        const response = await fetch(
+            `https://api.pexels.com/v1/search?query=${placeName}&per_page=1`,
+            {
+                headers: {
+                    Authorization: "YOUR_PEXELS_API_KEY"
+                }
+            }
+        );
+
+        const data = await response.json();
+
+        return data.photos[0]?.src?.large; // return first image
+    } catch (error) {
+        console.error("Error fetching image from Pexels:", error);
+        return null;
+    }
 };
 
 export default function Info({ trip }) {
@@ -159,3 +173,5 @@ export default function Info({ trip }) {
         </div>
     );
 }
+
+// oi21LBfpKP9hv4L6Fd3vynDVd8Fdro8QDelijZwABb8qRGAbd4EY3MMu
