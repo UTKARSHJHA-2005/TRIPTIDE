@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { doc, setDoc } from 'firebase/firestore';
 import Navbar from '../components/Navbar';
-import { AI_Prompt } from '../AIModel';
+import { AI_Prompt,generateTripPlan } from '../AIModel';
 import { Userstore } from '../Userstore';
-import { chatSession } from '../AIModel';
 import { db } from '../db';
 import { useNavigate } from 'react-router-dom';
 
