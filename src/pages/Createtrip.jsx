@@ -5,6 +5,14 @@ import { AI_Prompt, generateTripPlan } from "../AIModel";
 import { Userstore } from "../Userstore";
 import { db } from "../db";
 import { useNavigate } from "react-router-dom";
+import {
+  Compass,
+  Calendar,
+  Wallet,
+  Users,
+  Sparkles,
+  MapPin,
+} from "lucide-react";
 
 export default function Createtrip() {
   const { currentUser } = Userstore();
