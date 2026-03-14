@@ -51,6 +51,8 @@ export default function Createtrip() {
       console.log("Raw AI Response:", tripdata);
 
       alert("Trip generation failed. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -59,6 +61,7 @@ export default function Createtrip() {
       alert("Please fill in all fields to generate your trip!");
       return;
     }
+    setLoading(true);
     try {
       const FINAL_PROMPT = AI_Prompt.replace("{place}", place)
         .replace("{days}", days)
@@ -68,6 +71,7 @@ export default function Createtrip() {
       console.log(response);
       savetrip(response);
     } catch (error) {
+      setLoading(false);
       console.error("Error generating trip:", error.message);
       alert("Failed to generate trip. Please try again.");
     }
