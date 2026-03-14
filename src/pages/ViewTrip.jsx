@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import planeimg from "./planetrip.jpg";
 
-export default function Info({ trip }) {
+export default function View() {
   return (
     <div>
       <img
