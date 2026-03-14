@@ -4,15 +4,7 @@ import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../db";
 import { useNavigate, Link } from "react-router-dom";
 import { AiFillCamera } from "react-icons/ai";
-import {
-  MapPin,
-  Calendar,
-  Phone,
-  Mail,
-  User,
-  briefcase,
-  ChevronRight,
-} from "lucide-react";
+import { MapPin, Phone, Mail, User, Globe, ChevronRight } from "lucide-react";
 import { collection, query, where, getDocs } from "firebase/firestore";
 
 const ProfilePage = () => {
