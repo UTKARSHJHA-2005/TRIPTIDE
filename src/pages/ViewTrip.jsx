@@ -7,7 +7,7 @@ export default function Info({ trip }) {
     <div>
       <img
         src={
-          placeImage ||
+          planeimg ||
           "https://unsplash.com/photos/black-dslr-camera-near-sunglasses-and-bag-GOZxrAlNIt4"
         }
         alt="Place"
