@@ -37,7 +37,7 @@ export default function Createtrip() {
         .replace("{days}", days)
         .replace("{travelGroup}", travelGroup)
         .replace("{budget}", budget);
-      const response = await generateTripAI(FINAL_PROMPT);
+      const response = await generateTripPlan(FINAL_PROMPT);
       console.log(response);
       savetrip(response);
     } catch (error) {
