@@ -20,6 +20,7 @@ export default function Createtrip() {
   const [days, setDays] = useState("");
   const [budget, setBudget] = useState("");
   const [travelGroup, setTravelGroup] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const savetrip = async (tripdata) => {
