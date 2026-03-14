@@ -3,7 +3,8 @@ import { Userstore } from "../Userstore";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../db";
 import { useNavigate } from "react-router-dom";
-import { AiFillCamera } from "react-icons/ai"; 
+import { AiFillCamera } from "react-icons/ai";
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 const ProfilePage = () => {
   const { currentUser, updateUserInfo } = Userstore();
@@ -13,12 +14,13 @@ const ProfilePage = () => {
   const [dob, setDob] = useState(currentUser?.dob || "");
   const [phone, setPhone] = useState(currentUser?.phone || "");
   const [email, setEmail] = useState(currentUser?.email || "");
+  const [trips, setTrips] = useState([]);
   const handleAvatarChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setAvatar(reader.result); 
+        setAvatar(reader.result);
       };
       reader.readAsDataURL(file);
     }
@@ -46,11 +48,13 @@ const ProfilePage = () => {
           <img
             src={avatar || "https://via.placeholder.com/150"}
             alt="Avatar"
-            className="w-full h-full object-cover"/>
+            className="w-full h-full object-cover"
+          />
         </div>
         <label
           htmlFor="avatarUpload"
-          className="absolute bottom-0 right-0 bg-blue-600 text-white p-2 rounded-full cursor-pointer">
+          className="absolute bottom-0 right-0 bg-blue-600 text-white p-2 rounded-full cursor-pointer"
+        >
           <AiFillCamera size={20} />
         </label>
         <input
@@ -58,7 +62,8 @@ const ProfilePage = () => {
           type="file"
           accept="image/*"
           className="hidden"
-          onChange={handleAvatarChange}/>
+          onChange={handleAvatarChange}
+        />
       </div>
       <div className="mb-4 w-full max-w-md">
         <label className="block text-sm font-medium">Name</label>
@@ -66,7 +71,8 @@ const ProfilePage = () => {
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full border px-3 py-2 rounded"/>
+          className="w-full border px-3 py-2 rounded"
+        />
       </div>
       <div className="mb-4 w-full max-w-md">
         <label className="block text-sm font-medium">Email ID</label>
@@ -74,7 +80,8 @@ const ProfilePage = () => {
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full border px-3 py-2 rounded"/>
+          className="w-full border px-3 py-2 rounded"
+        />
       </div>
       <div className="mb-4 w-full max-w-md">
         <label className="block text-sm font-medium">Date of Birth</label>
@@ -82,7 +89,8 @@ const ProfilePage = () => {
           type="date"
           value={dob}
           onChange={(e) => setDob(e.target.value)}
-          className="w-full border px-3 py-2 rounded"/>
+          className="w-full border px-3 py-2 rounded"
+        />
       </div>
       <div className="mb-4 w-full max-w-md">
         <label className="block text-sm font-medium">Phone Number</label>
@@ -90,11 +98,13 @@ const ProfilePage = () => {
           type="tel"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-          className="w-full border px-3 py-2 rounded"/>
+          className="w-full border px-3 py-2 rounded"
+        />
       </div>
       <button
         onClick={handleSaveChanges}
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500">
+        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500"
+      >
         Save Changes
       </button>
     </div>
