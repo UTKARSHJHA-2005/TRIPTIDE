@@ -40,6 +40,32 @@ const ProfilePage = () => {
     navigate("/home");
   };
 
+  useEffect(() => {
+    const fetchTrips = async () => {
+      try {
+        const q = query(
+          collection(db, "AITrips"),
+          where("email", "==", currentUser?.email),
+        );
+
+        const querySnapshot = await getDocs(q);
+
+        const userTrips = [];
+        querySnapshot.forEach((doc) => {
+          userTrips.push({ id: doc.id, ...doc.data() });
+        });
+
+        setTrips(userTrips);
+      } catch (error) {
+        console.error("Error fetching trips:", error);
+      }
+    };
+
+    if (currentUser?.email) {
+      fetchTrips();
+    }
+  }, [currentUser]);
+
   return (
     <div className="p-6 flex flex-col items-center">
       <h1 className="text-2xl font-bold mb-6">Edit Profile</h1>
